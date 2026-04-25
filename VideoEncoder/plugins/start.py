@@ -51,7 +51,7 @@ async def start_message(app, message):
 ⚠️ Personal Use Only
 👉 Send Video to Start 🚀</b>"""
     await message.reply_photo(
-        photo="https://files.catbox.moe/b1yu65.jpg",
+        photo="http://telegraph.controller.bot/files/6630683090/AgACAgUAAxkBAAJ792nsShJWxyjagwxn1wao-VYSoVw-AAIMFGsb2_BpV7ATrrYUmYdcAQADAgADeQADOwQ",
         caption=text,
         reply_markup=start_but
     )
