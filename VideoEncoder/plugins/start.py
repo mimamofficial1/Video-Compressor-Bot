@@ -33,8 +33,7 @@ async def start_message(app, message):
     if not c:
         return
     await AddUserToDatabase(app, message)
-    text = f"""<a href='https://files.catbox.moe/b1yu65.jpg'>&#8203;</a>
-🔥 WELCOME TO ENCODING BOT 🔥
+    text = """🔥 <b>WELCOME TO ENCODING BOT</b> 🔥
 
 ⚙️ Video Encode • Compress • Customize 🎬
 
@@ -51,7 +50,11 @@ async def start_message(app, message):
 
 ⚠️ <b>Personal Use Only</b>
 👉 Send Video to Start 🚀"""
-    await message.reply(text=text, reply_markup=start_but)
+    await message.reply_photo(
+        photo="https://files.catbox.moe/b1yu65.jpg",
+        caption=text,
+        reply_markup=start_but
+    )
 
 
 @Client.on_message(filters.command('help'))
