@@ -27,14 +27,38 @@ def uptime():
     return TimeFormatter(time.time() - botStartTime)
 
 
-@Client.on_message(filters.command('start'))
+@Client.on_message(filters.command("start") & filters.private)
 async def start_message(app, message):
     c = await check_chat(message, chat='Both')
     if not c:
         return
+
     await AddUserToDatabase(app, message)
-    text = f"Hi {message.from_user.mention()}<a href='https://ibb.co/RGx4RmDg'>!</a> I'm VideoEncoder Bot which will do magic with your file."
-    await message.reply(text=text, reply_markup=start_but)
+
+    caption = f"""🔥 <b>WELCOME TO ENCODING BOT</b> 🔥
+
+⚙️ <b>Video Encode • Compress • Customize</b> 🎬
+
+🚀 <b>Features:</b>
+• MKV / MP4 / AVI Convert
+• H.264 / H.265 Encoding
+• Custom Quality (CRF)
+• Audio Edit & Rearrange
+• 1080p → 360p Resolution
+• Batch + Direct Link + GDrive
+
+🛠 <b>Commands:</b>
+/dl • /ddl • /batch • /settings • /status
+
+⚠️ <b>Personal Use Only</b>
+👉 <b>Send Video to Start 🚀</b>
+"""
+
+    await message.reply_photo(
+        photo="https://files.catbox.moe/b1yu65.jpg",
+        caption=caption,
+        parse_mode="html",
+        reply_markup=start_but)
 
 
 @Client.on_message(filters.command('help'))
