@@ -33,11 +33,11 @@ async def start_message(app, message):
     if not c:
         return
     await AddUserToDatabase(app, message)
-    text = """🔥 <b>WELCOME TO ENCODING BOT</b> 🔥
+    text = """🔥 <b>WELCOME TO ENCODING BOT 🔥
 
 ⚙️ Video Encode • Compress • Customize 🎬
 
-🚀 <b>Features:</b>
+🚀 Features:
 • MKV / MP4 / AVI Convert
 • H.264 / H.265 Encoding
 • Custom Quality (CRF)
@@ -45,11 +45,11 @@ async def start_message(app, message):
 • 1080p → 360p Resolution
 • Batch + Direct Link + GDrive
 
-🛠 <b>Commands:</b>
+🛠 Commands:
 /dl • /ddl • /batch • /settings • /status
 
-⚠️ <b>Personal Use Only</b>
-👉 Send Video to Start 🚀"""
+⚠️ Personal Use Only
+👉 Send Video to Start 🚀</b>"""
     await message.reply_photo(
         photo="https://files.catbox.moe/b1yu65.jpg",
         caption=text,
