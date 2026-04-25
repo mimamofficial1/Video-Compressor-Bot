@@ -1,3 +1,5 @@
+
+
 import os
 import shutil
 import time
@@ -25,17 +27,16 @@ def uptime():
     return TimeFormatter(time.time() - botStartTime)
 
 
-@Client.on_message(filters.command("start") & filters.private)
+@Client.on_message(filters.command('start'))
 async def start_message(app, message):
     c = await check_chat(message, chat='Both')
     if not c:
         return
-
     await AddUserToDatabase(app, message)
+    text = f"""<a href='https://files.catbox.moe/b1yu65.jpg'>&#8203;</a>
+🔥 WELCOME TO ENCODING BOT 🔥
 
-    caption = f"""🔥 <b>WELCOME TO ENCODING BOT</b> 🔥
-
-⚙️ <b>Video Encode • Compress • Customize</b> 🎬
+⚙️ Video Encode • Compress • Customize 🎬
 
 🚀 <b>Features:</b>
 • MKV / MP4 / AVI Convert
@@ -49,14 +50,8 @@ async def start_message(app, message):
 /dl • /ddl • /batch • /settings • /status
 
 ⚠️ <b>Personal Use Only</b>
-👉 <b>Send Video to Start 🚀</b>
-"""
-
-    await message.reply_photo(
-        photo="https://files.catbox.moe/b1yu65.jpg",
-        caption=caption,
-        parse_mode="html",
-        reply_markup=start_but)
+👉 Send Video to Start 🚀"""
+    await message.reply(text=text, reply_markup=start_but)
 
 
 @Client.on_message(filters.command('help'))
